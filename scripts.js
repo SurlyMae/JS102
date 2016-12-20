@@ -10,8 +10,6 @@ var noises = []
 
 animal.noises = noises
 
-console.log('Animal: ', animal)
-
 var count = 0
 for (var key in animal) {
   count++;
@@ -21,3 +19,39 @@ for (var key in animal) {
     console.log(`I say ${animal[key]}`)
   }
 }
+
+var noiseArray = ['neigh']
+
+noiseArray.unshift('baaa')
+
+noiseArray.push('quack')
+
+noiseArray[3] = 'moo'
+
+animal.noises = noiseArray
+
+var animals = []
+
+animals.push(animal)
+
+var quackers = {
+  username: 'DaffyDuck',
+  tagline: 'Yippeee!',
+  noises: ['quack', 'honk', 'sneeze', 'growl']
+}
+
+animals.unshift(quackers)
+
+var scratchers = {
+  username: 'Hugo',
+  tagline: 'I am a cat who is basically a dog.',
+  noises: ['growl', 'meow', 'purr']
+}
+
+var barkers = {
+  username: 'Malto',
+  tagline: 'I am a bully.',
+  noises: ['woof', 'whimper', 'grr']
+}
+
+animals.push(scratchers, barkers)
