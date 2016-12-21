@@ -55,3 +55,59 @@ var barkers = {
 }
 
 animals.push(scratchers, barkers)
+
+function AnimalTestUser (username) {
+  let otherArgs = []
+  if (arguments.length > Function.length) {
+    otherArgs = [].slice.call(arguments, 1)
+    }
+  return {
+    username: username,
+    otherArgs: otherArgs
+  }
+}
+
+var testSheep = AnimalTestUser('Cottonball', {'loves dancing': true}, [1,2,3])
+
+function AnimalCreator (username, species, tagline, noises) {
+  let animal = {
+    username: username,
+    species: species,
+    tagline: tagline,
+    noises: noises,
+    friends: []
+  }
+  return animal
+}
+
+var sheep = AnimalCreator('Cloud', 'sheep', 'You can count on me!', ['baahhh', 'arrgg', 'chewchewchew'])
+
+function addFriend (animal, friend) {
+  animal.friends.push(friend.username)
+  friend.friends.push(animal.username)
+}
+
+var blackSheep = AnimalCreator('Black Sheep', 'sheep', 'You know you want to!!', ['baaaaaaad'])
+
+addFriend(sheep, blackSheep)
+
+var pig = AnimalCreator('Babe', 'pig', 'Not by the hair on my chinny chin chin!', ['oink', 'wee', 'squeal'])
+
+var myFarm = [sheep, blackSheep, pig]
+addFriend(pig, sheep)
+
+function addMatchesArray (farm) {
+  farm.forEach(animal => {
+    animal.matches = []
+  })
+}
+
+addMatchesArray(myFarm)
+
+function giveMatches (farm) {
+  farm.forEach(animal => {
+    animal.matches.push(animal.friends[0])
+  })
+}
+
+giveMatches(myFarm)
