@@ -60,7 +60,7 @@ function AnimalTestUser (username) {
   let otherArgs = []
   if (arguments.length > Function.length) {
     otherArgs = [].slice.call(arguments, 1)
-    }
+  }
   return {
     username: username,
     otherArgs: otherArgs
@@ -111,3 +111,21 @@ function giveMatches (farm) {
 }
 
 giveMatches(myFarm)
+
+var friends = []
+friends.push(animals[0].username, animals[2].username)
+
+var relationships = {}
+relationships.friends = friends
+
+console.log(Object.keys(relationships).length);
+
+var matches = []
+
+relationships.matches = matches
+
+relationships.matches.push('Babe')
+
+animals.forEach(animal => {
+  animal.relationships = relationships
+})
